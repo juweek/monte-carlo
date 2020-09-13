@@ -1,0 +1,59 @@
+@import "defaults";
+@import "furniture";
+@import "modal";
+@import "body";
+
+/*
+------------------------------
+this is the combined css. import all the files and set some higher level settings
+------------------------------
+*/
+
+html {
+    width: 100%;
+}
+
+body {
+    margin: 0 auto;
+    background-color: $main-bg;
+    color: $text-color;
+    font-family: 'Proza Libre';
+}
+
+h2 {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+
+/*
+------------------------------
+css of elements that will appear in multiple places
+------------------------------
+*/
+.nv-button {
+    //style
+    background-color: $navbar-bg;
+    color: $text-color;
+    box-shadow: 3px 3px;
+    border: 1px;
+    font-family: 'Neucha';
+
+    &:hover,
+    &:focus
+     {
+         text-decoration: none;
+         cursor: pointer;
+         box-shadow: 1px 1px;
+    }
+
+    //positioning
+    padding: 10px 4px;
+    max-width: 200px;
+    margin: 0 auto;
+    text-align: center;
+}

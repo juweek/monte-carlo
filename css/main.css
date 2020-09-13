@@ -1,0 +1,173 @@
+/*
+------------------------------
+this is the css to set up the defaults for the project like media breakpoints, colors, etc
+------------------------------
+*/
+/*
+------------------------------
+this is the css for the navbar and the footer
+------------------------------
+*/
+.nv-navbar {
+  background-color: #fff;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+  min-height: 80vh;
+  position: relative; }
+  .nv-navbar img {
+    max-width: 100px; }
+  @media (max-width: 46.24em) {
+    .nv-navbar {
+      min-height: 90vh; } }
+
+.nv-navbar-brand {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Proza Libre';
+  position: absolute;
+  top: 5px;
+  right: 5px; }
+
+.nv-navbar-main-image img {
+  max-width: 45%;
+  position: absolute;
+  left: 25vw;
+  bottom: 0; }
+@media (max-width: 46.24em) {
+  .nv-navbar-main-image img {
+    max-width: 85%;
+    left: 8vw; } }
+
+/*
+------------------------------
+this is the css for the modal and the modal form fields
+------------------------------
+*/
+#modalItems {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  position: fixed;
+  top: 0px; }
+
+.modalItems--box {
+  padding: 20px;
+  margin: auto;
+  margin-top: 40px;
+  background-color: #fff;
+  color: #333;
+  width: 45%;
+  height: 460px; }
+  @media (max-width: 46.24em) {
+    .modalItems--box {
+      width: 80%;
+      height: 80vh; } }
+
+.close {
+  float: right; }
+  .close:hover, .close:focus {
+    text-decoration: none;
+    cursor: pointer; }
+  .close svg {
+    width: 40px; }
+
+.modalItems--form {
+  display: flex;
+  flex-direction: column; }
+  .modalItems--form .modalItems--form--field {
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 10px 4px; }
+
+/*
+------------------------------
+this is the css for the wrapper that surrounds the list of household members
+------------------------------
+*/
+.body-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background-color: #F1F0EC; }
+
+.nv-body {
+  padding: 20px 10px; }
+  @media (min-width: 46.25em) {
+    .nv-body {
+      padding: 0px 20px 40px;
+      margin: 40px auto; } }
+
+/*
+------------------------------
+css for the list of household members
+------------------------------
+*/
+.nv-households-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  max-width: 90%;
+  justify-content: center; }
+  .nv-households-list img {
+    max-width: 100%;
+    max-height: 100%; }
+
+.nv-household {
+  max-height: 40vh;
+  margin-top: 20vh;
+  margin-bottom: 90vh;
+  padding: 10px;
+  border: 1px solid;
+  box-shadow: 2px 2px;
+  text-align: left; }
+  .nv-household .db-name {
+    font-weight: 700; }
+  .nv-household div {
+    margin-bottom: 4px; }
+
+/*
+------------------------------
+this is the combined css. import all the files and set some higher level settings
+------------------------------
+*/
+html {
+  width: 100%; }
+
+body {
+  margin: 0 auto;
+  background-color: #fff;
+  color: #333;
+  font-family: 'Proza Libre'; }
+
+h2 {
+  font-size: 34px;
+  font-weight: bold; }
+
+h3 {
+  font-size: 20px; }
+
+/*
+------------------------------
+css of elements that will appear in multiple places
+------------------------------
+*/
+.nv-button {
+  background-color: #dcdcdc;
+  color: #333;
+  box-shadow: 3px 3px;
+  border: 1px;
+  font-family: 'Neucha';
+  padding: 10px 4px;
+  max-width: 200px;
+  margin: 0 auto;
+  text-align: center; }
+  .nv-button:hover, .nv-button:focus {
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 1px 1px; }
+
+/*# sourceMappingURL=main.css.map */
