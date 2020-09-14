@@ -28,13 +28,23 @@
   <!--
   COMIC PANEL #1
 -->
-<div class="nv-body">
-  <div class="nv-households-list">
-  </div>
+<div id="container">
+    <div class="left">
+        <canvas id="canvas-element" class="plot"></canvas>
+    </div>
+    <div class="right">
+        <svg id="svg-element"></svg>
+        <div id="info">
+            <p>How many dots are there?: <span id="total-iteration"></span></p>
+            <p>How many dots are in the circle?: <span id="in-circle"></span></p>
+            <p>Current estimate value of Pi: <span id="pi-estimate"></span></p>
+            <p><button id="start-button">Start</button></p>
+        </div>
+    </div>
 </div>
 
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.1.1/d3.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/main.js"></script>
 </body>
