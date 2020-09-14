@@ -93,8 +93,8 @@ METHOD: draw a dot an determine if it is in the circle
 */
 var update = (count) => {
   //first, generate a random x and y number to figure out the next dot's coordinates
-  var x = randomFloat(0, circleWidth)
-  var y = randomFloat(0, circleHeight)
+  var x = randomInt(0, circleWidth)
+  var y = randomInt(0, circleHeight)
 
   //check if the point is in the circle
   if (euclideanDistance(x, circleWidth / 2, y, circleHeight / 2) < circleRadius) {
@@ -133,7 +133,8 @@ METHOD: draw the actual dot
 */
 var drawPoint = (x, y, r) => {
   context.beginPath()
-  context.arc(x, y, r, 0, 2 * Math.Pi)
+  context.arc(x, y, radius, 0, 2 * Math.PI)
+  //context.arc(x, y, r, 0, 2 * Math.Pi)
   context.closePath()
   context.fill()
 }
@@ -169,10 +170,6 @@ METHOD: calculate the euclidean distance so you can tell if a dot was in the cir
 ------------------------------
 */
 var euclideanDistance = (x1, x2, y1, y2) => {
-  console.log('x1: ' + x1)
-  console.log('x2: ' + x2)
-  console.log('y1: ' + y1)
-  console.log('y2: ' + y2)
   return Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)))
 }
 
@@ -180,6 +177,6 @@ var euclideanDistance = (x1, x2, y1, y2) => {
 METHOD: calculate the euclidean distance so you can tell if a dot was in the circle
 ------------------------------
 */
-var randomFloat = (min, max) => {
-  return (max - min) * Math.random() + min
+var randomInt = (min, max) => {
+  return parseInt((max - min) * Math.random() + min)
 }
