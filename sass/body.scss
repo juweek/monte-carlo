@@ -10,59 +10,11 @@ this is the css for the wrapper that surrounds the list of household members
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
-    background-color: $comic-bg;
-}
 
-//household area div that sits inside the wrapper
-.nv-body {
-    padding: 20px 10px;
+    margin: 0 auto;
+    margin-top: 60px;
 
     @include mq($from: tablet) {
-        padding: 0px 20px 40px;
-        margin: 40px auto;
-    }
-}
-
-#info-lines {
-  opacity: 0;
-  text-align: center;
-  margin-bottom: 40px;
-}
-/*
-------------------------------
-css for the list of household members
-------------------------------
-*/
-//wrapper for the list of household members
-.nv-households-list {
-    display: flex;
-    flex-wrap: wrap;
-
-    margin: 20px auto;
-    max-width: 90%;
-    justify-content: center;
-
-    img {
-      max-width: 100%;
-      max-height: 100%;
-    }
-}
-
-//div of a household member. a group of these are placed inside the wrapper
-.nv-household {
-    max-height: 40vh;
-    margin-top: 20vh;
-    margin-bottom: 90vh;
-    padding: 10px;
-    border: 1px solid;
-    box-shadow: 2px 2px;
-    text-align: left;
-
-    .db-name {
-        font-weight: 700;
-    }
-
-    div {
-        margin-bottom: 4px;
+        max-width: 40%;
     }
 }

@@ -8,80 +8,31 @@ this is the css to set up the defaults for the project like media breakpoints, c
 this is the css for the navbar and the footer
 ------------------------------
 */
-.nv-navbar {
-  background-color: #fff;
-  padding-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #333;
-  min-height: 80vh;
-  position: relative; }
-  .nv-navbar img {
-    max-width: 100px; }
-  @media (max-width: 46.24em) {
-    .nv-navbar {
-      min-height: 90vh; } }
+#br-body__info-lines {
+  opacity: 0;
+  text-align: center;
+  margin-bottom: 40px; }
 
-.nv-navbar-brand {
-  display: flex;
-  flex-direction: column;
-  font-family: 'Proza Libre';
-  position: absolute;
-  top: 5px;
-  right: 5px; }
-
-.nv-navbar-main-image img {
-  max-width: 15%;
-  position: absolute;
-  left: 45vw;
-  bottom: 15vh; }
-@media (max-width: 46.24em) {
-  .nv-navbar-main-image img {
-    max-width: 85%;
-    left: 8vw; } }
-
-#input-field {
+#br-body__input-field {
   width: 100%;
   margin-top: 15px; }
 
+#br-body__restart-button {
+  opacity: 0; }
+
 /*
 ------------------------------
-this is the css for the modal and the modal form fields
+this is the css for the graphic and graphic text
 ------------------------------
 */
-p {
-  font: 14px sans-serif; }
-
-#left {
-  float: left;
-  width: 50%;
-  text-align: right; }
-
-.left {
+#br-body__canvas {
   max-width: fit-content;
   margin: 0 auto; }
 
-#right {
-  float: right;
-  width: 50%;
-  text-align: left; }
-
 #canvas-element {
-  border: solid 1px black; }
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges; }
-
-.axis text {
-  font: 12px sans-serif; }
-
-.line {
-  fill: none;
-  stroke: #218380;
-  stroke-width: 1px; }
+  border: solid 1px black;
+  max-width: fit-content;
+  margin: 0 auto; }
 
 /*
 ------------------------------
@@ -93,47 +44,11 @@ this is the css for the wrapper that surrounds the list of household members
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  background-color: #F1F0EC; }
-
-.nv-body {
-  padding: 20px 10px; }
+  margin: 0 auto;
+  margin-top: 60px; }
   @media (min-width: 46.25em) {
-    .nv-body {
-      padding: 0px 20px 40px;
-      margin: 40px auto; } }
-
-#info-lines {
-  opacity: 0;
-  text-align: center;
-  margin-bottom: 40px; }
-
-/*
-------------------------------
-css for the list of household members
-------------------------------
-*/
-.nv-households-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px auto;
-  max-width: 90%;
-  justify-content: center; }
-  .nv-households-list img {
-    max-width: 100%;
-    max-height: 100%; }
-
-.nv-household {
-  max-height: 40vh;
-  margin-top: 20vh;
-  margin-bottom: 90vh;
-  padding: 10px;
-  border: 1px solid;
-  box-shadow: 2px 2px;
-  text-align: left; }
-  .nv-household .db-name {
-    font-weight: 700; }
-  .nv-household div {
-    margin-bottom: 4px; }
+    .body-wrapper {
+      max-width: 40%; } }
 
 /*
 ------------------------------
@@ -145,30 +60,10 @@ html {
 
 body {
   margin: 0 auto;
-  background-color: #fff;
+  background-color: #F1F0EC;
   color: #333;
   font-family: 'Proza Libre'; }
-
-h2 {
-  font-size: 34px;
-  font-weight: bold; }
-
-h3 {
-  font-size: 20px; }
-
-/*
-------------------------------
-css of elements that will appear in multiple places
-------------------------------
-*/
-#container {
-  margin: 0 auto;
-  margin-top: 60px; }
-  @media (min-width: 46.25em) {
-    #container {
-      max-width: 40%; } }
-
-#restart-button {
-  opacity: 0; }
+  body p {
+    font-size: 14px; }
 
 /*# sourceMappingURL=main.css.map */

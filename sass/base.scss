@@ -1,6 +1,6 @@
 @import "defaults";
-@import "furniture";
-@import "modal";
+@import "text";
+@import "graphic";
 @import "body";
 
 /*
@@ -15,35 +15,11 @@ html {
 
 body {
     margin: 0 auto;
-    background-color: $main-bg;
+    background-color: $comic-bg;
     color: $text-color;
     font-family: 'Proza Libre';
-}
 
-h2 {
-    font-size: 34px;
-    font-weight: bold;
-}
-
-h3 {
-    font-size: 20px;
-}
-
-
-/*
-------------------------------
-css of elements that will appear in multiple places
-------------------------------
-*/
-#container {
-  margin: 0 auto;
-  margin-top: 60px;
-
-  @include mq($from: tablet) {
-      max-width: 40%;
-  }
-}
-
-#restart-button {
-  opacity: 0;
+    p {
+      font-size: 14px;
+    }
 }
