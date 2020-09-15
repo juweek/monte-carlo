@@ -11,36 +11,28 @@
     <!--
     THE FRONT PANEL
   -->
-  <div class="nv-navbar">
-    <div class="nv-navbar-logo">
-      <span>An estimation of pi</span>
-    </div>
-    <div class="nv-navbar-brand">
-      <img src="css/me.png">
-      <span>juweek.online</span>
-    </div>
-    <div class="nv-navbar-main-image">
-      <img src="css/main-image.jpg">
-    </div>
-  </div>
-
 
   <!--
   COMIC PANEL #1
 -->
 <div id="container">
-    <div class="left">
-        <canvas id="canvas-element" class="plot"></canvas>
+  <div class="right">
+    <div id="info">
+      <div>Hey there! Want to see the Monte Carlo algorithm in action? Enter a number below and click the start button to see it do its magic and estimate Pi!</div>
+      <input id="input-field" type="text" placeholder="Type in how many dots you want to enter">
+      <p><button id="start-button">Start</button></p>
+      <p><button id="restart-button">Restart</button></p>
+      <div id="info-lines">
+        <p><b>How many dots are there?</b> <span id="total-iteration"></span></p>
+        <p><b>How many landed in the circle?</b> <span id="in-circle"></span></p>
+        <p><b>So what's the current estimate of pi?</b> <span id="pi-estimate"></span></p>
+      </div>
     </div>
-    <div class="right">
-        <svg id="svg-element"></svg>
-        <div id="info">
-            <p>How many dots are there?: <span id="total-iteration"></span></p>
-            <p>How many dots are in the circle?: <span id="in-circle"></span></p>
-            <p>Current estimate value of Pi: <span id="pi-estimate"></span></p>
-            <p><button id="start-button">Start</button></p>
-        </div>
-    </div>
+  </div>
+  <div class="left">
+    <canvas id="canvas-element" class="plot"></canvas>
+  </div>
+  <svg id="svg-element"></svg>
 </div>
 
 </div>

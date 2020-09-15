@@ -16,6 +16,11 @@ p {
      text-align: right;
  }
 
+ .left {
+   max-width: fit-content;
+   margin: 0 auto;
+ }
+
 //Modal container; box + background shading
  #right {
      float: right;
@@ -23,10 +28,6 @@ p {
      text-align: left;
  }
 
-//Modal container; box + background shading
- #info {
-     margin-left: 50px;
- }
 
 //Modal container; box + background shading
  #canvas-element {

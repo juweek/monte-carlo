@@ -31,14 +31,18 @@ this is the css for the navbar and the footer
   right: 5px; }
 
 .nv-navbar-main-image img {
-  max-width: 45%;
+  max-width: 15%;
   position: absolute;
-  left: 25vw;
-  bottom: 0; }
+  left: 45vw;
+  bottom: 15vh; }
 @media (max-width: 46.24em) {
   .nv-navbar-main-image img {
     max-width: 85%;
     left: 8vw; } }
+
+#input-field {
+  width: 100%;
+  margin-top: 15px; }
 
 /*
 ------------------------------
@@ -53,13 +57,14 @@ p {
   width: 50%;
   text-align: right; }
 
+.left {
+  max-width: fit-content;
+  margin: 0 auto; }
+
 #right {
   float: right;
   width: 50%;
   text-align: left; }
-
-#info {
-  margin-left: 50px; }
 
 #canvas-element {
   border: solid 1px black; }
@@ -96,6 +101,11 @@ this is the css for the wrapper that surrounds the list of household members
     .nv-body {
       padding: 0px 20px 40px;
       margin: 40px auto; } }
+
+#info-lines {
+  opacity: 0;
+  text-align: center;
+  margin-bottom: 40px; }
 
 /*
 ------------------------------
@@ -151,19 +161,14 @@ h3 {
 css of elements that will appear in multiple places
 ------------------------------
 */
-.nv-button {
-  background-color: #dcdcdc;
-  color: #333;
-  box-shadow: 3px 3px;
-  border: 1px;
-  font-family: 'Neucha';
-  padding: 10px 4px;
-  max-width: 200px;
+#container {
   margin: 0 auto;
-  text-align: center; }
-  .nv-button:hover, .nv-button:focus {
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: 1px 1px; }
+  margin-top: 60px; }
+  @media (min-width: 46.25em) {
+    #container {
+      max-width: 40%; } }
+
+#restart-button {
+  opacity: 0; }
 
 /*# sourceMappingURL=main.css.map */

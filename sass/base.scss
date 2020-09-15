@@ -35,25 +35,15 @@ h3 {
 css of elements that will appear in multiple places
 ------------------------------
 */
-.nv-button {
-    //style
-    background-color: $navbar-bg;
-    color: $text-color;
-    box-shadow: 3px 3px;
-    border: 1px;
-    font-family: 'Neucha';
+#container {
+  margin: 0 auto;
+  margin-top: 60px;
 
-    &:hover,
-    &:focus
-     {
-         text-decoration: none;
-         cursor: pointer;
-         box-shadow: 1px 1px;
-    }
+  @include mq($from: tablet) {
+      max-width: 40%;
+  }
+}
 
-    //positioning
-    padding: 10px 4px;
-    max-width: 200px;
-    margin: 0 auto;
-    text-align: center;
+#restart-button {
+  opacity: 0;
 }

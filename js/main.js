@@ -1,11 +1,14 @@
 var startButton = document.getElementById('start-button')
-console.log('yerr')
+var restartButton = document.getElementById('restart-button')
+var inputField = document.getElementById('input-field')
+var inputLines = document.getElementById('info-lines')
+
 /*
 Set variables for the circle
 ------------------------------
 */
-var circleWidth = 400
-var circleHeight = 400
+var circleWidth = 300
+var circleHeight = 300
 var circleRadius = Math.min(circleHeight, circleWidth) / 2
 var canvasArea = circleWidth * circleHeight
 
@@ -20,7 +23,7 @@ var margin = {
   right: 20,
   bottom: 40
 }
-var lineWidth = 400 - margin.left - margin.right
+var lineWidth = 300 - margin.left - margin.right
 var lineHeight = 250 - margin.top - margin.bottom
 
 
@@ -55,128 +58,138 @@ var context = canvas.node().getContext("2d")
 context.strokeStyle = 'black'
 context.lineWidth = 3
 
+context.clearRect(0, 0, 300, 300)
 context.beginPath()
 context.arc(circleWidth/2, circleHeight/2, circleRadius, 0, 2 * Math.PI)
 context.closePath()
 context.stroke()
 
+/*
+METHOD: create the canvas and its context
+------------------------------
+*/
+restartButton.addEventListener('click', (o) => {
+  if(inputField.value == "" || isNaN(inputField.value)) {
+    alert('Please type in a number')
+  } else {
+    totalPoints = parseInt(inputField.value)
 
-startButton.addEventListener('click', (o) => {
+    totalPointsDrawn = 0
+    totalInCircle = 0
+    context.clearRect(0, 0, 300, 300)
+    context.beginPath()
+    context.arc(circleWidth/2, circleHeight/2, circleRadius, 0, 2 * Math.PI)
+    context.closePath()
+    context.stroke()
+
     start()
+  }
 })
 
 /*
-METHOD: calculate the total count, then draw the circles and repeat
+METHOD: create the canvas and its context
 ------------------------------
 */
-var start = () => {
-  //first, reset the varibles
-  var count = 0
+startButton.addEventListener('click', (o) => {
+  if(inputField.value == "" || isNaN(inputField.value)) {
+    alert('Please type in a number')
+  } else {
+    totalPoints = parseInt(inputField.value)
+    startButton.innerHTML = 'Add more'
+    restartButton.style.opacity = 1
+    start()
+  }
+})
 
-  //iterate over every dot. call the update method to draw it
-  var drawInterval = setInterval(function() {
+  /*
+  METHOD: calculate the total count, then draw the circles and repeat
+  ------------------------------
+  */
+  var start = () => {
+    //first, reset the varibles
+    var count = 1
 
-    if(count > totalPoints) {
-      clearInterval(drawInterval)
+    //show the other lines
+    inputLines.style.opacity = "1"
+
+    //iterate over every dot. call the update method to draw it
+    var drawInterval = setInterval(function() {
+
+      if(count >= totalPoints) {
+        clearInterval(drawInterval)
+      }
+      update(count)
+      count++
+    }, 5)
+
+    startButton.addEventListener('click', null)
+  }
+
+
+  /*
+  METHOD: draw a dot an determine if it is in the circle
+  ------------------------------
+  */
+  var update = (count) => {
+    //first, generate a random x and y number to figure out the next dot's coordinates
+    var x = randomInt(0, circleWidth)
+    var y = randomInt(0, circleHeight)
+
+    //check if the point is in the circle
+    if (euclideanDistance(x, circleWidth / 2, y, circleHeight / 2) < circleRadius) {
+      context.fillStyle = '#3db540'
+      totalInCircle++
     }
-    update(count)
-    count++
-  }, 10)
+    else {
+      context.fillStyle = '#c70000'
+    }
 
-  startButton.addEventListener('click', null)
-}
+    //draw the point
+    drawPoint(x, y, radius)
+    totalPointsDrawn++
 
+    estimatedPi = (totalInCircle/totalPointsDrawn) * 4
+    currentError = Math.PI - estimatedPi
 
-/*
-METHOD: draw a dot an determine if it is in the circle
-------------------------------
-*/
-var update = (count) => {
-  //first, generate a random x and y number to figure out the next dot's coordinates
-  var x = randomInt(0, circleWidth)
-  var y = randomInt(0, circleHeight)
-
-  //check if the point is in the circle
-  if (euclideanDistance(x, circleWidth / 2, y, circleHeight / 2) < circleRadius) {
-    context.fillStyle = '#73d2de'
-    totalInCircle++
-  }
-  else {
-    context.fillStyle = '#c70000'
+    //update the text
+    updateText()
   }
 
-  //draw the point
-  drawPoint(x, y, radius)
-  totalPointsDrawn++
 
-  estimatedPi = (totalInCircle/totalPointsDrawn) * 4
-  currentError = Math.PI - estimatedPi
+  /*
+  METHOD: change the text everytime a new point is drawn
+  ------------------------------
+  */
+  var updateText = () => {
+    document.getElementById('total-iteration').innerHTML = totalPointsDrawn.toString()
+    document.getElementById('in-circle').innerHTML = totalInCircle.toString()
+    document.getElementById('pi-estimate').innerHTML = estimatedPi.toFixed(5)
+  }
 
-  //update the text
-  updateText()
-}
+  /*
+  METHOD: draw the actual dot
+  ------------------------------
+  */
+  var drawPoint = (x, y, r) => {
+    context.beginPath()
+    context.arc(x, y, radius, 0, 2 * Math.PI)
+    //context.arc(x, y, r, 0, 2 * Math.Pi)
+    context.closePath()
+    context.fill()
+  }
 
+  /*
+  METHOD: calculate the euclidean distance so you can tell if a dot was in the circle
+  ------------------------------
+  */
+  var euclideanDistance = (x1, x2, y1, y2) => {
+    return Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)))
+  }
 
-/*
-METHOD: change the text everytime a new point is drawn
-------------------------------
-*/
-var updateText = () => {
-  document.getElementById('total-iteration').innerHTML = totalPointsDrawn.toString()
-  document.getElementById('in-circle').innerHTML = totalInCircle.toString()
-  document.getElementById('pi-estimate').innerHTML = estimatedPi
-}
-
-/*
-METHOD: draw the actual dot
-------------------------------
-*/
-var drawPoint = (x, y, r) => {
-  context.beginPath()
-  context.arc(x, y, radius, 0, 2 * Math.PI)
-  //context.arc(x, y, r, 0, 2 * Math.Pi)
-  context.closePath()
-  context.fill()
-}
-
-/*
-METHOD: translate string as needed
-------------------------------
-*/
-var translateString = (x, y) => {
-  var out = []
-  out.push("translate(")
-  out.push(x)
-  out.push(" ")
-  out.push(y)
-  out.push(")")
-  return out.join("")
-}
-
-/*
-METHOD: rotate string as needed
-------------------------------
-*/
-var rotateString = (r) => {
-  var out = []
-  out.push("rotate(")
-  out.push(r)
-  out.push(")")
-  return out.join("")
-}
-
-/*
-METHOD: calculate the euclidean distance so you can tell if a dot was in the circle
-------------------------------
-*/
-var euclideanDistance = (x1, x2, y1, y2) => {
-  return Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)))
-}
-
-/*
-METHOD: calculate the euclidean distance so you can tell if a dot was in the circle
-------------------------------
-*/
-var randomInt = (min, max) => {
-  return parseInt((max - min) * Math.random() + min)
-}
+  /*
+  METHOD: calculate the euclidean distance so you can tell if a dot was in the circle
+  ------------------------------
+  */
+  var randomInt = (min, max) => {
+    return parseInt((max - min) * Math.random() + min)
+  }
