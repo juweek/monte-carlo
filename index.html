@@ -4,54 +4,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/fonts.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <meta http-equiv="refresh" content="0; URL=https://example.com/">
 
 </head>
 
 <body>
   <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSP26IMrrx1MVIh_2NhbKQvtAbseR0Myyxsf72VpwbyNgAB0Hf-SSlOTO8tQSIF3JHttARF9F1Twe_p/embed?start=false&loop=false&delayms=60000" frameborder="0" width="100%" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-  <div class="body-wrapper">
-    <div id="br-body">
-
-      <!--
-      INTRO TEXT AND DIRECTIONS
-    -->
-    <div>Hey there! Want to see the Monte Carlo algorithm in action? Enter a number below and click the start button to see it do its magic and estimate Pi!</div>
-
-
-    <!--
-    TEXT FIELD
-  -->
-  <div id="br-body__form">
-    <input id="br-body__input-field" type="text" placeholder="Type in how many dots you want to enter">
-  </div>
-
-  <!--
-  START AND RESTART BUTTONS
--->
-<div id="br-body__buttons">
-  <p><button id="br-body__start-button">Start</button></p>
-  <p><button id="br-body__restart-button">Restart</button></p>
-</div>
-
-<!--
-LINES ABOUT DETAILS AND STATS
--->
-<div id="br-body__info-lines">
-  <p><b>How many dots are there?</b> <span id="total-iteration"></span></p>
-  <p><b>How many landed in the circle?</b> <span id="in-circle"></span></p>
-  <p><b>So what's the current estimate of pi?</b> <span id="pi-estimate"></span></p>
-</div>
-
-<!--
-CIRCLE GRAPHIC
--->
-<div id="br-body__canvas">
-  <canvas id="canvas-element" class="plot"></canvas>
-</div>
-
-</div>
-</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.1.1/d3.min.js"></script>
 <script src="build/js/main.js"></script>
