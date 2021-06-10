@@ -1,23 +1,24 @@
 <?xml version="1.0" ?><svg xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" id="uit-canvas__map-svg" viewBox="0 0 1967.2 848.2" class="donations"><style type="text/css" >
           <![CDATA[
-          path {
-            fill:   #c4c4c4;
-          }
           .noData{
              fill:   #c4c4c4;
            }
+
             .over10{
-               fill:   #488f31;
+               fill:   #38AB8E;
             }
+
             .over5{
-               fill:   #9fc08f;
+               fill:   #CCCB6C;
             }
+
             .over1{
-               fill:   #f09fa2;
+               fill:   #FDA163;
             }
+
             .under1{
-               fill:   #de425b;
+               fill:   #FD7061;
             }
         }
           ]]>

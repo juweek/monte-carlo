@@ -60,10 +60,22 @@ html {
 
 body {
   margin: 0 auto;
-  background-color: #F1F0EC;
+  background-color: #FCF5EC;
   color: #333;
   font-family: 'Proza Libre'; }
   body p {
     font-size: 14px; }
 
+
+    .key {
+      display: flex;
+      width: 200px;
+    }
+
+    .key_break {
+      height: 20px;
+      width: 40px;
+      background-color: #333;
+      margin: 10px 5px;
+    }
 /*# sourceMappingURL=main.css.map */
