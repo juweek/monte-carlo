@@ -62,7 +62,7 @@ body {
   margin: 0 auto;
   background-color: #FCF5EC;
   color: #333;
-  font-family: 'Proza Libre'; }
+ }
   body p {
     font-size: 14px; }
 
@@ -75,7 +75,42 @@ body {
     .key_break {
       height: 20px;
       width: 40px;
-      background-color: #333;
-      margin: 10px 5px;
+      margin: 5px 3px;
     }
 /*# sourceMappingURL=main.css.map */
+
+path {
+  fill:   #c4c4c4;
+}
+.noData{
+   fill:   #c4c4c4;
+ }
+
+  .over10{
+     fill:   #38AB8E;
+  }
+
+  .over5{
+     fill:   #CCCB6C;
+  }
+
+  .over1{
+     fill:   #F2CF6F;
+  }
+
+  .under1{
+     fill:   #FD7061;
+  }
+  .highlighted {
+    stroke-width: 2px;
+    stroke: white;
+    opacity: .5;
+  }
+
+  #textElement {
+    opacity: 0;
+  }
+
+  #textElement .highlighted {
+    opacity: 1;
+  }
