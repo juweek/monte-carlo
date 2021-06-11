@@ -41,8 +41,6 @@ dropdownElement.addEventListener("change", function(event)
   var countryName = currentElement.value
   var currentCountry = currentElement.options[currentElement.selectedIndex]
   var mapElement = document.getElementById(countryName.toLowerCase())
-  console.log(countryName)
-  console.log(currentCountry.dataset.classification)
   mapElement.classList.add("highlighted")
 })
 
