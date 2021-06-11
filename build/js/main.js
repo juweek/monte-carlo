@@ -27,6 +27,24 @@ function formatText(element) {
   return words
 }
 
+/*
+------------------------------
+METHOD: convert into to abbreviated string
+------------------------------
+*/
+function intToString (value) {
+  if (!value) {
+    return '0'
+  }
+  var suffixes = ["", "k", "m", "b","t"];
+  var suffixNum = Math.floor((""+value).length/3);
+  var shortValue = parseFloat((suffixNum != 0 ? (value / Math.pow(1000,suffixNum)) : value).toPrecision(2));
+  if (shortValue % 1 != 0) {
+    shortValue = shortValue.toFixed(1);
+  }
+  return shortValue+suffixes[suffixNum];
+}
+
 
 /*
 ------------------------------
@@ -42,6 +60,10 @@ dropdownElement.addEventListener("change", function(event)
   var currentCountry = currentElement.options[currentElement.selectedIndex]
   var mapElement = document.getElementById(countryName.toLowerCase())
   mapElement.classList.add("highlighted")
+  //textElement.innerHTML = (currentElement.value + ' has sequenced ' + mapElement.dataset.genomesshared.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' genomes out of ' + mapElement.dataset.covidcases.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' covid cases. That is an ' + mapElement.classList[0] + '% genome sequencing rate.')
+  var m
+
+  textElement.innerHTML = (currentElement.value + ' has sequenced ' + intToString(parseInt(mapElement.dataset.genomesshared)) + ' genomes out of ' + intToString(parseInt(mapElement.dataset.covidcases)) + ' covid cases. That is an ' + mapElement.classList[0] + '% genome sequencing rate.')
 })
 
 /*
@@ -55,27 +77,26 @@ function clearHover() {
     element.classList.remove("highlighted")
   )}
 
-
-/*
-------------------------------
-METHOD: hover interaction for map
-------------------------------
-*/
-
-arr.forEach(element =>
-  element.addEventListener("mouseover", function(event)
-  {
-    clearHover()
-    const currentElement = event.target
-    currentElement.classList.add("highlighted")
-    textElement.classList.add("highlighted")
-    const words = formatText(event.target)
-    textElement.innerHTML = (words + ' has ' + event.target.classList[0] + '% of their total genomes sequenced.')
-  }))
+  /*
+  ------------------------------
+  METHOD: hover interaction for map
+  ------------------------------
+  */
 
   arr.forEach(element =>
-    element.addEventListener("mouseleave", function(event)
+    element.addEventListener("mouseover", function(event)
     {
-      const currentElement = event.target;
-      currentElement.classList.remove("highlighted");
+      clearHover()
+      const currentElement = event.target
+      currentElement.classList.add("highlighted")
+      textElement.classList.add("highlighted")
+      const words = formatText(event.target)
+      textElement.innerHTML = (words + ' has sequenced ' + intToString(parseInt(event.target.dataset.genomesshared)) + ' genomes out of ' + intToString(parseInt(event.target.dataset.covidcases)) + ' covid cases. That is an ' + event.target.classList[0] + '% genome sequencing rate.')
     }))
+
+    arr.forEach(element =>
+      element.addEventListener("mouseleave", function(event)
+      {
+        const currentElement = event.target;
+        currentElement.classList.remove("highlighted");
+      }))

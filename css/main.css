@@ -69,13 +69,17 @@ body {
 
     .key {
       display: flex;
-      width: 200px;
+      flex-direction: column;
+    }
+
+    .key_block {
+        display: flex;
     }
 
     .key_break {
       height: 20px;
       width: 40px;
-      margin: 5px 3px;
+      margin: 2px 2px;
     }
 /*# sourceMappingURL=main.css.map */
 
@@ -107,10 +111,14 @@ path {
     opacity: .5;
   }
 
-  #textElement {
-    opacity: 0;
+  #text_container.highlighted {
+    opacity: 1;
   }
 
-  #textElement .highlighted {
-    opacity: 1;
+  #text_container {
+    max-width: 500px;
+    min-height: 40px;
+    font-size: 1em;
+    line-height: 1.3em;
+    color: #999999;
   }
