@@ -3,10 +3,12 @@
 METHOD: fetch the elements from the DOM
 ------------------------------
 */
-var svgElement = document.getElementById("svg")
+var svgElement = document.getElementById("uit-canvas__map-svg")
 var textElement = document.getElementById("text_container")
 var dropdownElement = document.getElementById("mySelect")
 let svgPaths = svgElement.getElementsByTagName("path")
+var buttonElements = document.querySelectorAll(".buttonsContainer button");
+var keyText = document.querySelectorAll(".key_block span");
 
 var arr = Array.from(svgPaths)
 
@@ -52,8 +54,7 @@ METHOD: add event listener to dropdown
 ------------------------------
 */
 
-dropdownElement.addEventListener("change", function(event)
-{
+dropdownElement.addEventListener("change", event => {
   clearHover()
   const currentElement = event.target
   var countryName = currentElement.value
@@ -63,8 +64,26 @@ dropdownElement.addEventListener("change", function(event)
   //textElement.innerHTML = (currentElement.value + ' has sequenced ' + mapElement.dataset.genomesshared.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' genomes out of ' + mapElement.dataset.covidcases.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' covid cases. That is an ' + mapElement.classList[0] + '% genome sequencing rate.')
   var m
 
-  textElement.innerHTML = (currentElement.value + ' has sequenced ' + intToString(parseInt(mapElement.dataset.genomesshared)) + ' genomes out of ' + intToString(parseInt(mapElement.dataset.covidcases)) + ' covid cases. That is an ' + mapElement.classList[0] + '% genome sequencing rate.')
+  textElement.innerHTML = (currentElement.value + ' has sequenced ' + intToString(parseInt(mapElement.dataset.genomenumbers)) + ' genomes out of ' + intToString(parseInt(mapElement.dataset.covidcases)) + ' covid cases. That is an ' + mapElement.classList[0] + '% genome sequencing rate.')
 })
+
+/*
+------------------------------
+METHOD: button click interaction
+------------------------------
+*/
+var currentFilter
+
+buttonElements.forEach(element =>
+  element.addEventListener("click", event => {
+    buttonElements.forEach(button => {
+      button.classList.remove('active')
+    })
+    event.target.classList.add('active')
+    printFilter(event.target.dataset.filter)
+    svgElement.classList = ''
+    svgElement.classList.add(event.target.dataset.filter)
+  }))
 
 /*
 ------------------------------
@@ -75,28 +94,51 @@ METHOD: clear out all the hover states
 function clearHover() {
   arr.forEach(element =>
     element.classList.remove("highlighted")
-  )}
+)}
 
-  /*
-  ------------------------------
-  METHOD: hover interaction for map
-  ------------------------------
-  */
+/*
+------------------------------
+METHOD: print out certain filter
+------------------------------
+*/
 
-  arr.forEach(element =>
-    element.addEventListener("mouseover", function(event)
-    {
-      clearHover()
-      const currentElement = event.target
-      currentElement.classList.add("highlighted")
-      textElement.classList.add("highlighted")
-      const words = formatText(event.target)
-      textElement.innerHTML = (words + ' has sequenced ' + intToString(parseInt(event.target.dataset.genomesshared)) + ' genomes out of ' + intToString(parseInt(event.target.dataset.covidcases)) + ' covid cases. That is an ' + event.target.classList[0] + '% genome sequencing rate.')
+function printFilter(currentFilter) {
+  arr.forEach(function(element) {
+    var current = element.getAttribute('data-' + currentFilter.toLowerCase())
+})
+keyText.forEach((item) => {
+  item.classList.remove('visibleText')
+  var currentKeyText = document.querySelectorAll('.' + currentFilter + "_text");
+
+  currentKeyText.forEach((current) => {
+    current.classList.add('visibleText')
+  })
+})
+}
+
+/*
+------------------------------
+METHOD: mouse enter hover interaction for map
+------------------------------
+*/
+
+arr.forEach(element =>
+  element.addEventListener("mouseover", event => {
+    clearHover()
+    const currentElement = event.target
+    currentElement.classList.add("highlighted")
+    textElement.classList.add("highlighted")
+    const words = formatText(event.target)
+    textElement.innerHTML = (words + ' has sequenced ' + intToString(parseInt(event.target.dataset.genomenumbers)) + ' genomes out of ' + intToString(parseInt(event.target.dataset.covidcases)) + ' covid cases. That is an ' + event.target.classList[0] + '% genome sequencing rate.')
     }))
 
-    arr.forEach(element =>
-      element.addEventListener("mouseleave", function(event)
-      {
-        const currentElement = event.target;
-        currentElement.classList.remove("highlighted");
-      }))
+/*
+------------------------------
+METHOD: mouse out interaction for map
+------------------------------
+*/
+arr.forEach(element =>
+  element.addEventListener("mouseleave", event => {
+    const currentElement = event.target;
+      currentElement.classList.remove("highlighted");
+    }))
