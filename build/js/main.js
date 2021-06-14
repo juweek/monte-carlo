@@ -76,10 +76,13 @@ var currentFilter
 
 buttonElements.forEach(element =>
   element.addEventListener("click", event => {
+    buttonElements.forEach(button => {
+      button.classList.remove('active')
+    })
+    event.target.classList.add('active')
     printFilter(event.target.dataset.filter)
     svgElement.classList = ''
     svgElement.classList.add(event.target.dataset.filter)
-
   }))
 
 /*
