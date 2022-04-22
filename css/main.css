@@ -8,55 +8,92 @@ this is the css to set up the defaults for the project like media breakpoints, c
 this is the css for the navbar and the footer
 ------------------------------
 */
-#br-body__info-lines {
-  opacity: 0;
-  text-align: center;
-  margin-bottom: 40px;
+body {
+  width:100%
 }
 
-#br-body__input-field {
-  width: 100%;
-  margin-top: 15px;
+.centered {
+  display: table;
+  margin: 20px auto;
 }
 
-#br-body__restart-button {
-  opacity: 0;
-}
-
-/*
-------------------------------
-this is the css for the graphic and graphic text
-------------------------------
-*/
-#br-body__canvas {
-  max-width: fit-content;
+.graph {
+  width: 50%;
   margin: 0 auto;
 }
 
-#canvas-element {
-  border: solid 1px black;
-  max-width: fit-content;
-  margin: 0 auto;
+#checkboxes > * {
+  font-size: 14px;
+  display: inline;
+  padding-top: 3px;
 }
 
-/*
-------------------------------
-this is the css for the wrapper that surrounds the list of household members
-------------------------------
-*/
-.body-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-  margin: 0 auto;
-  margin-top: 60px;
+.measure-group {
+  display:inline;
 }
 
-@media (min-width: 46.25em) {
-  .body-wrapper {
-    max-width: 40%;
-  }
+.scale-group {
+  padding-left: 40px;
+  display:inline;
+}
+
+button {
+  margin:0 auto;
+  display:block;
+}
+
+svg {
+  background-color: white;
+}
+
+.cells path {
+  fill: none;
+  pointer-events: all;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: left;
+  color: white;
+  white-space: normal;
+  padding: 6px;
+  font-size: 14px;
+  background: rgb(96,125,139);
+  border: 1px solid rgb(96,125,139);
+  border-radius: 2px;
+  pointer-events: none;
+  cursor: none;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: rgb(96,125,139);
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.legend {
+  fill: rgba(0,0,0,.87);
+}
+
+.article {
+  position: fixed;
+  top: 20px;
+  left: 15px;
+  font-size: 35px;
+  color: rgb(96,125,139);
+}
+
+.article-tt {
+  font-size: 14px;
+  background: rgb(96,125,139);
+  border: 1px solid rgb(96,125,139);
+  border-radius: 2px;
+  pointer-events: none;
 }
 
 /*
