@@ -39,6 +39,9 @@ this is the css for the graphic and graphic text
   margin: 0 auto;
 }
 
+.outer--content {
+  background-color: #E4E2E1; 
+}
 /*
 ------------------------------
 this is the css for the wrapper that surrounds the list of household members
@@ -117,19 +120,19 @@ path {
   fill:   #c4c4c4;
 }
 .over10{
-  fill:   #38AB8E;
+  fill:   #077c3a;
 }
 
 .over5{
-  fill:   #CCCB6C;
+  fill:   #73c655;
 }
 
 .over1{
-  fill:   #F2CF6F;
+  fill:   #edd28a;
 }
 
 .under1{
-  fill:   #FD7061;
+  fill:   #cd3524;
 }
 .highlighted {
   stroke-width: 2px;
