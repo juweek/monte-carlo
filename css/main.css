@@ -28,12 +28,15 @@ body {
   padding-top: 3px;
 }
 
+<<<<<<< HEAD
 .measure-group {
   display:inline;
 }
 .outer--content {
   background-color: #E4E2E1; 
 }
+=======
+>>>>>>> parent of 1b38527... created the state mamap
 /*
 ------------------------------
 this is the css for the wrapper that surrounds the list of household members
@@ -165,19 +168,19 @@ path {
   fill:   #c4c4c4;
 }
 .over10{
-  fill:   #077c3a;
+  fill:   #38AB8E;
 }
 
 .over5{
-  fill:   #73c655;
+  fill:   #CCCB6C;
 }
 
 .over1{
-  fill:   #edd28a;
+  fill:   #F2CF6F;
 }
 
 .under1{
-  fill:   #cd3524;
+  fill:   #FD7061;
 }
 .highlighted {
   stroke-width: 2px;
